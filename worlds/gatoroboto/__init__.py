@@ -18,7 +18,7 @@ from .Names import ItemName, LocationName
 from .Options import GatoRobotoOptions, gatoroboto_option_groups
 from worlds.LauncherComponents import Type, launch_subprocess, Component, icon_paths, components
 from .Presets import gatoroboto_options_presets
-import Utils
+from Utils import local_path
 
 from .Names import RegionName
 
@@ -41,7 +41,7 @@ components.append(Component("Gato Roboto Client",
                             supports_uri=True,
                             game_name="Gato Roboto"))
 
-icon_paths['kiki'] = Utils.user_path("worlds/gatoroboto/data", "Kiki.png")
+icon_paths['kiki'] = f"ap:{__name__}/data/Kiki.png"
 
 def data_path(file_name: str):
     import pkgutil
