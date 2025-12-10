@@ -8,12 +8,13 @@ from .Items import (heater_events_item_data_table,
                     vent_events_item_data_table, 
                     healthkits_item_data_table, 
                     item_data_table)
-from .Locations import (GatoRobotoLocation, 
-                        location_table, 
-                        healthkit_location_data_table, 
-                        cartridge_location_data_table, 
-                        module_location_data_table, 
-                        event_location_data_table)
+from .Locations import (GatoRobotoLocation,
+                        location_table,
+                        healthkit_location_data_table,
+                        cartridge_location_data_table,
+                        module_location_data_table,
+                        event_location_data_table,
+                        victory_location_data_table)
 from .Names import ItemName, LocationName
 from .Options import GatoRobotoOptions, gatoroboto_option_groups
 from worlds.LauncherComponents import Type, launch_subprocess, Component, icon_paths, components
@@ -144,6 +145,11 @@ class GatoRobotoWorld(World):
             region.add_locations({
                 location_name: location_data.address 
                 for location_name, location_data in event_location_data_table.items()
+                if location_data.region == region_name
+            })
+            region.add_locations({
+                location_name: location_data.address
+                for location_name, location_data in victory_location_data_table.items()
                 if location_data.region == region_name
             })
             
