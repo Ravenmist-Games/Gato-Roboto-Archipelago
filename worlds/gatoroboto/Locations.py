@@ -107,11 +107,17 @@ event_location_data_table: Dict[str, GatoRobotoLocationData] = {
         GatoRobotoLocationData(RegionName.region_ventilation, gatoroboto_base_id + 521)
 }
 
+victory_location_data_table: Dict[str, GatoRobotoLocationData] = {
+    LocationName.loc_victory:
+        GatoRobotoLocationData(RegionName.region_laboratory, gatoroboto_base_id + 1319)
+}
+
 location_data_table: Dict[str, GatoRobotoLocationData] = {
     **healthkit_location_data_table,
     **cartridge_location_data_table,
     **module_location_data_table,
-    **event_location_data_table
+    **event_location_data_table,
+    **victory_location_data_table
 }
 
 location_table = {name: data.address for name, data in location_data_table.items()}
