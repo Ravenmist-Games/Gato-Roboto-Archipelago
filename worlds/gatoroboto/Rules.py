@@ -97,12 +97,11 @@ def set_rules(world: GatoRobotoWorld):
 
         # Aqueducts East Healthkit
         LocationName.loc_healthkit_aqueducts_east:
-            lambda state: (state.has_all(ItemName.ProgressiveAqueducts, player) and
+            lambda state: (state.has_from_list(ItemName.ProgressiveAqueducts, player, 2) and
                            state.has(ItemName.module_spinjump, player)) or
                           (state.has_from_list(ItemName.ProgressiveAqueducts, player, 2) and
                            world.options.rocket_jumps) or
                           (world.options.rocket_jumps and
-                           world.options.precise_tricks and
                            world.options.water_mech),
 
         # Port Cartridge
@@ -117,27 +116,36 @@ def set_rules(world: GatoRobotoWorld):
 
         # Starboard Cartridge
         LocationName.loc_cartridge_starboard:
-            lambda state: state.has_from_list(ItemName.ProgressiveAqueducts, player, 2) and
-                          (state.has(ItemName.module_spinjump, player) or
-                           world.options.rocket_jumps),
+            lambda state: (state.has_from_list(ItemName.ProgressiveAqueducts, player, 2) and
+                           state.has(ItemName.module_spinjump, player)) or
+                          (state.has_from_list(ItemName.ProgressiveAqueducts, player, 2) and
+                           world.options.rocket_jumps) or
+                          (world.options.rocket_jumps and
+                           world.options.water_mech),
 
         # Spin Jump Module
         LocationName.loc_module_spinjump:
             lambda state: state.has_all(ItemName.ProgressiveAqueducts, player),
 
         # Progressive Aqueducts 1
-        # LocationName.loc_progressive_aqueducts_1: lambda state: True,
+        LocationName.loc_progressive_aqueducts_1:
+            lambda state: state.count_from_list(ItemName.ProgressiveAqueducts, player) == 0 or
+                          (state.has_any(ItemName.ProgressiveAqueducts, player) and
+                           (state.has(ItemName.module_spinjump, player) or
+                            world.options.rocket_jumps)),
 
         # Progressive Aqueducts 2
         LocationName.loc_progressive_aqueducts_2:
-            lambda state: state.has_any(ItemName.ProgressiveAqueducts, player),
+            lambda state: state.has_any(ItemName.ProgressiveAqueducts, player) or
+                          (world.options.rocket_jumps and
+                           world.options.water_mech),
 
         # Progressive Aqueducts 3
         LocationName.loc_progressive_aqueducts_3:
-            lambda state: (state.has_from_list(ItemName.ProgressiveAqueducts, player, 2)
-                           and not state.has_from_list(ItemName.ProgressiveAqueducts, player, 3))
-                          or (state.has_from_list(ItemName.ProgressiveAqueducts, player, 2)
-                              and world.options.rocket_jumps),
+            lambda state: state.count_from_list(ItemName.ProgressiveAqueducts, player) == 2 or
+                          (state.has_from_list(ItemName.ProgressiveAqueducts, player, 2) and
+                           (state.has(ItemName.module_spinjump, player) or
+                            world.options.rocket_jumps)),
 
         # HEATER CORE
 
@@ -163,26 +171,36 @@ def set_rules(world: GatoRobotoWorld):
 
         # Phase Module
         LocationName.loc_module_phase:
-            lambda state: state.has_from_list(ItemName.ProgressiveHeaterCore, player, 2),
+            lambda state: state.has_from_list(ItemName.ProgressiveHeaterCore, player, 2) or
+                          state.has(ItemName.module_phase, player),
 
         # Coolant Module
         LocationName.loc_module_coolant:
-            lambda state: state.has_all(ItemName.ProgressiveHeaterCore, player)
-                          or (state.has_any(ItemName.ProgressiveHeaterCore, player) and
-                              world.options.rocket_jumps and
-                              world.options.small_mech),
+            lambda state: (state.has_from_list(ItemName.ProgressiveHeaterCore, player, 2) and
+                           state.has(ItemName.module_phase, player)) or
+                          (state.has_any(ItemName.ProgressiveHeaterCore, player) and
+                           state.has(ItemName.module_phase, player) and
+                           world.options.rocket_jumps and
+                           world.options.small_mech) or
+                          state.has(ItemName.module_phase, player),
 
         # Progressive Heater Core 1
         # LocationName.loc_progressive_heater_core_1: lambda state: True,
 
         # Progressive Heater Core 2
         LocationName.loc_progressive_heater_core_2:
-            lambda state: state.has_any(ItemName.ProgressiveHeaterCore, player),
+            lambda state: state.has_any(ItemName.ProgressiveHeaterCore, player) or
+                          state.has(ItemName.module_phase, player),
 
         # Progressive Heater Core 3
         LocationName.loc_progressive_heater_core_3:
-            lambda state: state.has_from_list(ItemName.ProgressiveHeaterCore, player, 2)
-                          and state.has(ItemName.module_phase, player),
+            lambda state: (state.has_from_list(ItemName.ProgressiveHeaterCore, player, 2) and
+                           state.has(ItemName.module_phase, player)) or
+                          (state.has_any(ItemName.ProgressiveHeaterCore, player) and
+                           state.has(ItemName.module_phase, player) and
+                           world.options.rocket_jumps and
+                           world.options.small_mech) or
+                          state.has(ItemName.module_phase, player),
 
         # VENTILATION
 
@@ -230,12 +248,12 @@ def set_rules(world: GatoRobotoWorld):
         RegionName.region_nexus:
             lambda state: state.has(ItemName.module_missile, player),
         RegionName.region_heater_core:
-            lambda state: state.has(ItemName.module_spinjump, player)
-                          or world.options.rocket_jumps,
+            lambda state: state.has(ItemName.module_spinjump, player) or
+                          world.options.rocket_jumps,
         RegionName.region_ventilation:
-            lambda state: state.has_from_list(ItemName.ProgressiveHeaterCore, player, 2)
-                          and (state.has(ItemName.module_spinjump, player)
-                               or world.options.rocket_jumps),
+            lambda state: state.has_from_list(ItemName.ProgressiveHeaterCore, player, 2) and
+                          (state.has(ItemName.module_spinjump, player) or
+                           world.options.rocket_jumps),
         RegionName.region_incubator:
             lambda state: state.has_all(ItemName.ProgressiveAqueducts, player) and
                           state.has_all(ItemName.ProgressiveHeaterCore, player) and

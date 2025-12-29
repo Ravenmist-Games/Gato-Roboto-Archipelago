@@ -37,20 +37,20 @@ healthkits_item_data_table: Dict[str, GatoRobotoItemData] = {
 }
 
 cartridges_item_data_table: Dict[str, GatoRobotoItemData] = {
-    ItemName.cartridge_bark: GatoRobotoItemData(gato_roboto_base_id + 2, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_nicotine: GatoRobotoItemData(gato_roboto_base_id + 3, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_starboard: GatoRobotoItemData(gato_roboto_base_id + 4, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_coffee_stain: GatoRobotoItemData(gato_roboto_base_id + 5, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_virtual_cat: GatoRobotoItemData(gato_roboto_base_id + 6, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_port: GatoRobotoItemData(gato_roboto_base_id + 7, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_meowtrix: GatoRobotoItemData(gato_roboto_base_id + 8, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_goop: GatoRobotoItemData(gato_roboto_base_id + 9, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_urine: GatoRobotoItemData(gato_roboto_base_id + 10, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_tamagato: GatoRobotoItemData(gato_roboto_base_id + 11, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_gris: GatoRobotoItemData(gato_roboto_base_id + 12, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_chewed_gum: GatoRobotoItemData(gato_roboto_base_id + 13, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_swamp_matcha: GatoRobotoItemData(gato_roboto_base_id + 14, ItemClassification.progression_skip_balancing),
-    ItemName.cartridge_grape: GatoRobotoItemData(gato_roboto_base_id + 15, ItemClassification.progression_skip_balancing)
+    ItemName.cartridge_bark: GatoRobotoItemData(gato_roboto_base_id + 2, ItemClassification.progression),
+    ItemName.cartridge_nicotine: GatoRobotoItemData(gato_roboto_base_id + 3, ItemClassification.progression),
+    ItemName.cartridge_starboard: GatoRobotoItemData(gato_roboto_base_id + 4, ItemClassification.progression),
+    ItemName.cartridge_coffee_stain: GatoRobotoItemData(gato_roboto_base_id + 5, ItemClassification.progression),
+    ItemName.cartridge_virtual_cat: GatoRobotoItemData(gato_roboto_base_id + 6, ItemClassification.progression),
+    ItemName.cartridge_port: GatoRobotoItemData(gato_roboto_base_id + 7, ItemClassification.progression),
+    ItemName.cartridge_meowtrix: GatoRobotoItemData(gato_roboto_base_id + 8, ItemClassification.progression),
+    ItemName.cartridge_goop: GatoRobotoItemData(gato_roboto_base_id + 9, ItemClassification.progression),
+    ItemName.cartridge_urine: GatoRobotoItemData(gato_roboto_base_id + 10, ItemClassification.progression),
+    ItemName.cartridge_tamagato: GatoRobotoItemData(gato_roboto_base_id + 11, ItemClassification.progression),
+    ItemName.cartridge_gris: GatoRobotoItemData(gato_roboto_base_id + 12, ItemClassification.progression),
+    ItemName.cartridge_chewed_gum: GatoRobotoItemData(gato_roboto_base_id + 13, ItemClassification.progression),
+    ItemName.cartridge_swamp_matcha: GatoRobotoItemData(gato_roboto_base_id + 14, ItemClassification.progression),
+    ItemName.cartridge_grape: GatoRobotoItemData(gato_roboto_base_id + 15, ItemClassification.progression)
 }
 
 heater_events_item_data_table: Dict[str, GatoRobotoItemData] = {
