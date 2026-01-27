@@ -6,12 +6,15 @@ from .Names import RegionName
 
 gatoroboto_base_id: int = 10000
 
+
 class GatoRobotoLocation(Location):
     game = "Gato Roboto"
+
 
 class GatoRobotoLocationData(NamedTuple):
     region: str
     address: Optional[int] = None
+
 
 healthkit_location_data_table: Dict[str, GatoRobotoLocationData] = {
     LocationName.loc_healthkit_landing_site_west:

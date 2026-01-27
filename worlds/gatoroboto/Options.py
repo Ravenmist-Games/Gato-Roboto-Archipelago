@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 
-from Options import ItemsAccessibility
+from Options import DeathLink
 
-## Add deathlink later!!!
 from Options import Toggle, OptionGroup, PerGameCommonOptions
+
 
 class RocketJumps(Toggle):
     """
@@ -12,24 +12,28 @@ class RocketJumps(Toggle):
     """
     display_name = "Rocket Jumps"
 
+
 class PreciseTricks(Toggle):
     """
     Enable logic for accessing locations that are mechanically difficult.
     """
     display_name = "Precise Tricks"
-        
+
+
 class WaterMech(Toggle):
     """
     Enable logic for accessing locations with the Water Mech glitch.
     """
     display_name = "Water Mech"
-            
+
+
 class SmallMech(Toggle):
     """
     Enable logic for accessing locations with the Small Mech glitch.
     """
     display_name = "Small Mech"
-    
+
+
 gatoroboto_option_groups = [
     OptionGroup("Logic Options", [
         RocketJumps,
@@ -39,10 +43,11 @@ gatoroboto_option_groups = [
     ])
 ]
 
+
 @dataclass
 class GatoRobotoOptions(PerGameCommonOptions):
-    accessibility: ItemsAccessibility
     rocket_jumps: RocketJumps
     precise_tricks: PreciseTricks
     water_mech: WaterMech
     small_mech: SmallMech
+    death_link: DeathLink

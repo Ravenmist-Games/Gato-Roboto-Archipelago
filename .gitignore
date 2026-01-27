@@ -198,3 +198,4 @@ Thumbs.db
 
 # Fuzzer
 /fuzz_output
+/static_worlds/
